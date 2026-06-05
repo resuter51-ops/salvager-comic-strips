@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Salvager Comic Strips — Robert Suter</title>
+<meta name="description" content="The Salvager series brought to life in illustrated comic strips. Follow Zeke Carter panel by panel.">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #f5f5f5;
+    color: #333;
+  }
+
+  /* TOP BAR */
+  .topbar {
+    background: #1a1a2e;
+    color: rgba(255,255,255,0.7);
+    text-align: center;
+    font-size: 0.78rem;
+    padding: 8px 16px;
+    letter-spacing: 0.5px;
+  }
+  .topbar a { color: #f39c12; text-decoration: none; font-weight: 700; }
+
+  .cs-wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 24px 16px 48px;
+  }
+
+  /* HERO */
+  .cs-hero {
+    text-align: center;
+    background: linear-gradient(135deg, #1a1a2e 0%, #2d1b00 50%, #1a0a00 100%);
+    border-radius: 20px;
+    padding: 52px 24px 40px;
+    margin-bottom: 36px;
+    color: white;
+  }
+  .cs-hero-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #f39c12, #e67e22);
+    color: white;
+    font-size: 0.78rem;
+    font-weight: 800;
+    padding: 5px 16px;
+    border-radius: 50px;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+  .cs-hero h1 {
+    font-size: 2.4rem;
+    font-weight: 900;
+    margin: 0 0 12px;
+    color: white;
+    line-height: 1.2;
+  }
+  .cs-hero p {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.75);
+    margin: 0 auto;
+    max-width: 560px;
+    line-height: 1.6;
+  }
+  .cs-divider {
+    width: 60px; height: 4px;
+    background: linear-gradient(90deg, #f39c12, #e67e22);
+    border-radius: 2px;
+    margin: 22px auto 0;
+  }
+
+  /* COMING SOON */
+  .cs-coming-soon {
+    text-align: center;
+    background: linear-gradient(135deg, #fff8ee, #fffdf7);
+    border: 2px solid #f39c12;
+    border-radius: 20px;
+    padding: 40px 28px;
+    margin-bottom: 36px;
+  }
+  .cs-coming-soon .cs-icon { font-size: 3.5rem; margin-bottom: 14px; }
+  .cs-coming-soon h2 {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: #1a1a2e;
+    margin: 0 0 12px;
+  }
+  .cs-coming-soon p {
+    font-size: 0.95rem;
+    color: #555;
+    max-width: 520px;
+    margin: 0 auto 22px;
+    line-height: 1.6;
+  }
+  .cs-notify-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #f39c12, #e67e22);
+    color: white;
+    text-decoration: none;
+    padding: 13px 28px;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 0.95rem;
+    transition: opacity 0.2s;
+  }
+  .cs-notify-btn:hover { opacity: 0.85; }
+
+  /* SECTION TITLE */
+  .section-title {
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 900;
+    color: #1a1a2e;
+    margin: 0 0 20px;
+  }
+
+  /* SERIES CARDS */
+  .cs-series {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin-bottom: 36px;
+  }
+  .cs-book-card {
+    flex: 1;
+    min-width: 220px;
+    background: white;
+    border: 2px solid #e8e8f0;
+    border-radius: 18px;
+    padding: 22px 18px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.07);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .cs-book-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+  .cs-book-num {
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: #f39c12;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .cs-book-card h3 {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #1a1a2e;
+    margin: 0 0 8px;
+  }
+  .cs-book-card p {
+    font-size: 0.82rem;
+    color: #666;
+    line-height: 1.6;
+    margin: 0 0 14px;
+  }
+  .cs-read-btn {
+    display: inline-block;
+    background: #1a1a2e;
+    color: white;
+    text-decoration: none;
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    transition: background 0.2s;
+  }
+  .cs-read-btn:hover { background: #f39c12; }
+
+  /* PREVIEW GRID */
+  .cs-preview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 36px;
+  }
+  .cs-preview-box {
+    background: linear-gradient(135deg, #1a1a2e, #0f3460);
+    border-radius: 14px;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.6);
+    font-size: 0.85rem;
+    text-align: center;
+    padding: 16px;
+  }
+  .cs-preview-box .cs-soon { font-size: 2rem; margin-bottom: 8px; }
+
+  /* CTA */
+  .cs-cta {
+    text-align: center;
+    background: linear-gradient(135deg, #1a1a2e, #0f3460);
+    border-radius: 20px;
+    padding: 40px 24px;
+    color: white;
+    margin-bottom: 36px;
+  }
+  .cs-cta h2 { color: white; font-size: 1.4rem; font-weight: 900; margin: 0 0 10px; }
+  .cs-cta p { color: rgba(255,255,255,0.8); font-size: 0.9rem; margin: 0 0 24px; line-height: 1.6; }
+  .cs-cta-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #f39c12, #e67e22);
+    color: white;
+    text-decoration: none;
+    padding: 14px 30px;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 1rem;
+    transition: opacity 0.2s;
+  }
+  .cs-cta-btn:hover { opacity: 0.85; }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 20px 16px;
+    font-size: 0.8rem;
+    color: #999;
+    border-top: 1px solid #e0e0e0;
+  }
+  footer a { color: #f39c12; text-decoration: none; }
+
+  @media(max-width:600px) {
+    .cs-hero h1 { font-size: 1.7rem; }
+    .cs-book-card { min-width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  By <strong>Robert Suter</strong> &nbsp;·&nbsp; <a href="https://wordsandwheels.net">wordsandwheels.net</a> &nbsp;·&nbsp; <a href="https://resuter.gumroad.com">Buy the Books →</a>
+</div>
+
+<div class="cs-wrap">
+
+  <!-- HERO -->
+  <div class="cs-hero">
+    <div class="cs-hero-badge">📖 The Salvager Universe</div>
+    <h1>The Salvager<br>Comic Strips</h1>
+    <p>The gripping world of Zeke Carter — brought to life in illustrated panels. Action, suspense, and redemption, one strip at a time.</p>
+    <div class="cs-divider"></div>
+  </div>
+
+  <!-- COMING SOON -->
+  <div class="cs-coming-soon">
+    <div class="cs-icon">🎨</div>
+    <h2>Comic Strips Coming Soon!</h2>
+    <p>We're currently developing illustrated comic strip adaptations of <strong>The Salvager</strong> series. Follow Zeke Carter through the cases that made him a legend — panel by panel. Sign up below to be the first to know when they drop.</p>
+    <a href="mailto:resuter51@gmail.com?subject=Notify me about Salvager Comic Strips" class="cs-notify-btn">🔔 Notify Me When It's Live</a>
+  </div>
+
+  <!-- SERIES OVERVIEW -->
+  <p class="section-title">The Salvager Book Series</p>
+  <div class="cs-series">
+    <div class="cs-book-card">
+      <div class="cs-book-num">Book 1</div>
+      <h3>A Sister's Plea</h3>
+      <p>When a desperate sister begs Zeke Carter to bring her brother back from a dangerous cult, he's pulled into a shadowy world of control, manipulation, and a network that never forgets a name.</p>
+      <a href="https://books2read.com/u/4XVjp7" class="cs-read-btn">Get the Book →</a>
+    </div>
+    <div class="cs-book-card">
+      <div class="cs-book-num">Book 2</div>
+      <h3>The Runaway Daughter</h3>
+      <p>A missing teenage girl. A foster home full of secrets. And a trail that leads Zeke somewhere far darker than a simple runaway case. She wasn't running from home — she was running for her life.</p>
+      <a href="https://books2read.com/u/49gV6w" class="cs-read-btn">Get the Book →</a>
+    </div>
+    <div class="cs-book-card">
+      <div class="cs-book-num">Book 3</div>
+      <h3>The Network</h3>
+      <p>The Forum is no longer in the shadows. Zeke Carter goes head-to-head with the full machinery of a criminal network that has been watching him since Book 1. The final reckoning has arrived.</p>
+      <a href="https://books2read.com/u/4AW08p" class="cs-read-btn">Get the Book →</a>
+    </div>
+  </div>
+
+  <!-- PREVIEW PLACEHOLDERS -->
+  <p class="section-title">Strip Previews</p>
+  <div class="cs-preview-grid">
+    <div class="cs-preview-box">
+      <div class="cs-soon">🖼️</div>
+      <div>Strip #1<br><small>Coming Soon</small></div>
+    </div>
+    <div class="cs-preview-box">
+      <div class="cs-soon">🖼️</div>
+      <div>Strip #2<br><small>Coming Soon</small></div>
+    </div>
+    <div class="cs-preview-box">
+      <div class="cs-soon">🖼️</div>
+      <div>Strip #3<br><small>Coming Soon</small></div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cs-cta">
+    <h2>Start the Journey Now</h2>
+    <p>Read the full Salvager trilogy while the comic strips are in development. Available now at your favorite book retailers.</p>
+    <a href="https://resuter.gumroad.com" class="cs-cta-btn">Get The Books →</a>
+  </div>
+
+</div>
+
+<footer>
+  &copy; 2026 Robert Suter &nbsp;·&nbsp; <a href="https://wordsandwheels.net">wordsandwheels.net</a> &nbsp;·&nbsp; All rights reserved.
+</footer>
+
+</body>
+</html>
